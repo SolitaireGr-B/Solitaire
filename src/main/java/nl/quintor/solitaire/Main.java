@@ -6,6 +6,7 @@ import nl.quintor.solitaire.game.moves.ex.MoveException;
 import nl.quintor.solitaire.models.state.GameState;
 import nl.quintor.solitaire.ui.MyUI;
 import nl.quintor.solitaire.ui.UI;
+import nl.quintor.solitaire.ui.Startupinfo;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -33,13 +34,15 @@ public class Main {
      */
     public static void main(String... args){
         // initialize the GameState, UI and all possible moves
+
         UI ui = new MyUI();
+        Startupinfo startupInfo = new Startupinfo();
         GameState gameState = new GameState();
         List<String> keys = Arrays.asList("Q");
         List<Move> moves = Arrays.asList(new Quit());
         HashMap<String, Move> possibleMoves = new HashMap<>();
         for (int i = 0; i<keys.size(); i++) possibleMoves.put(keys.get(i), moves.get(i));
-
+        ui.setMessage(startupInfo.returnStartupInfo());
         // game loop
         while (!gameState.isGameOver()) {
             // show gamestate to the player and ask for next move
