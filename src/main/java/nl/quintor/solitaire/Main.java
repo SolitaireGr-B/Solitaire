@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-/*SHIIIITITTTT*/
+/*SHIIIITITTTT, we da real solitaire fanboyzzz*/
 /**
  * Application entry point
  */
