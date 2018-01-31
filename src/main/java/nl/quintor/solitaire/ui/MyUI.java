@@ -16,7 +16,7 @@ public class MyUI implements UI{
     }
     @Override
     public void setMessage(String message) {
-    System.out.print(message);
+    System.out.println(message);
     }
 
     @Override
