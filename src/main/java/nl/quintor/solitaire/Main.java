@@ -8,6 +8,7 @@ import nl.quintor.solitaire.ui.MyUI;
 import nl.quintor.solitaire.ui.UI;
 import nl.quintor.solitaire.ui.Startupinfo;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -43,12 +44,12 @@ public class Main {
         HashMap<String, Move> possibleMoves = new HashMap<>();
         for (int i = 0; i<keys.size(); i++) possibleMoves.put(keys.get(i), moves.get(i));
         ui.setMessage(startupInfo.returnStartupInfo());
-        
+
         // game loop
         while (!gameState.isGameOver()) {
             // show gamestate to the player and ask for next move
             String playerInput = ui.refreshAndRequestMove(gameState, moves).toUpperCase();
-            MyUI.readInput();
+ //           MyUI.readInput(keys);
 
             Move move = possibleMoves
                 .getOrDefault(playerInput.substring(0,1), null)
@@ -64,6 +65,7 @@ public class Main {
         if (gameState.isGameWon()){
             ui.setMessage("Congratulations, you beat the game!!! " + gameState.toString());
         }
+        MyUI.readInput(keys);
         ui.refresh(gameState);
     }
 }
