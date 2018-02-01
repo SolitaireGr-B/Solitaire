@@ -34,11 +34,11 @@ public class MyUI implements UI{
         refresh(gameState);
         Scanner input = new Scanner(System.in);
         String playerInput = null;
-        if(input.next().equals(keys.get(0))){
+        if(input.next().equalsIgnoreCase(keys.get(0))){
             //Stop het spel
             playerInput = "Q";
             System.out.print("rip game");
-        }else if(!input.next().equals(keys.get(0))){
+        }else if(!input.next().equalsIgnoreCase(keys.get(0))){
             System.out.print("hmm");
         }
         return playerInput;
