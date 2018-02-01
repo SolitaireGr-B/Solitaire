@@ -10,15 +10,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class MyUI implements UI{
-    public static void readInput(List keys){
-        Scanner input = new Scanner(System.in);
-        if(input.next() == keys.get(0)){//if input ==
-            //Stop het spel
-            System.out.println("rip game");
-        }else if(input.next() != keys.get(0)){
-            System.out.print("hmm");
-        }
-    }
     @Override
     public void setMessage(String message) {
     System.out.print("\r");
@@ -38,8 +29,18 @@ public class MyUI implements UI{
     }
 
     @Override
-    public String refreshAndRequestMove(GameState gameState, Collection<Move> moves) {
-    gameState.getMoves();
-    return moves.toString();
+    public String refreshAndRequestMove(GameState gameState, Collection<Move> moves, List<String> keys) {
+        setMessage("stuff");
+        refresh(gameState);
+        Scanner input = new Scanner(System.in);
+        String playerInput = null;
+        if(input.next().equals(keys.get(0))){
+            //Stop het spel
+            playerInput = "Q";
+            System.out.print("rip game");
+        }else if(!input.next().equals(keys.get(0))){
+            System.out.print("hmm");
+        }
+        return playerInput;
     }
 }

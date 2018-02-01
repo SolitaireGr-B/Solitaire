@@ -5,6 +5,7 @@ import nl.quintor.solitaire.models.state.GameState;
 
 import java.io.IOException;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * The basic UI interface, which can be used to implement a suitable UI using any technology.
@@ -49,7 +50,8 @@ public interface UI{
      *
      * @param gameState the game state to be visualized by the UI
      * @param moves the moves that are possible in this game state
+     * @param keys
      * @return String representation of the player request
      */
-    String refreshAndRequestMove(GameState gameState, Collection<Move> moves);
+    String refreshAndRequestMove(GameState gameState, Collection<Move> moves, List<String> keys);
 }

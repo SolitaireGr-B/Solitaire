@@ -48,8 +48,7 @@ public class Main {
         // game loop
         while (!gameState.isGameOver()) {
             // show gamestate to the player and ask for next move
-            String playerInput = ui.refreshAndRequestMove(gameState, moves).toUpperCase();
- //           MyUI.readInput(keys);
+            String playerInput = ui.refreshAndRequestMove(gameState, moves, keys).toUpperCase();
 
             Move move = possibleMoves
                 .getOrDefault(playerInput.substring(0,1), null)
@@ -65,7 +64,6 @@ public class Main {
         if (gameState.isGameWon()){
             ui.setMessage("Congratulations, you beat the game!!! " + gameState.toString());
         }
-        MyUI.readInput(keys);
         ui.refresh(gameState);
     }
 }
