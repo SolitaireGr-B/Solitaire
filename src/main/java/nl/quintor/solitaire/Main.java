@@ -1,14 +1,14 @@
 package nl.quintor.solitaire;
 
+import nl.quintor.solitaire.game.moves.Help;
 import nl.quintor.solitaire.game.moves.Move;
 import nl.quintor.solitaire.game.moves.Quit;
 import nl.quintor.solitaire.game.moves.ex.MoveException;
 import nl.quintor.solitaire.models.state.GameState;
 import nl.quintor.solitaire.ui.MyUI;
-import nl.quintor.solitaire.ui.UI;
 import nl.quintor.solitaire.ui.Startupinfo;
+import nl.quintor.solitaire.ui.UI;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -39,8 +39,9 @@ public class Main {
         UI ui = new MyUI();
         Startupinfo startupInfo = new Startupinfo();
         GameState gameState = new GameState();
-        List<String> keys = Arrays.asList("Q");
-        List<Move> moves = Arrays.asList(new Quit());
+        Help HelpUI = new Help();
+        List<String> keys = Arrays.asList("Q", "H");
+        List<Move> moves = Arrays.asList(new Quit(), new Help());
         HashMap<String, Move> possibleMoves = new HashMap<>();
         for (int i = 0; i<keys.size(); i++) possibleMoves.put(keys.get(i), moves.get(i));
         ui.setMessage(startupInfo.returnStartupInfo());
@@ -56,6 +57,7 @@ public class Main {
 
             try{
                 ui.setMessage(move.apply(gameState));
+                ui.setUIMSG("stufff");
             } catch (MoveException e){
                 ui.setErrorMessage(e.getMessage());
             }

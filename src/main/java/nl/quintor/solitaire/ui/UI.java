@@ -28,6 +28,7 @@ public interface UI{
      * @param message message to show the player
      */
     void setMessage(String message);
+    void setUIMSG(String message);
 
     /**
      * Set an error message to show the player the next time {@link #refresh(GameState)} is called. This
